@@ -1,4 +1,4 @@
-var SerialPort = require('serialport')
+var SerialPort = require('serialport');
 
 function register (
   {
@@ -13,26 +13,26 @@ function register (
     baudRate: 9600,
     parser: SerialPort.parsers.readline('\n'),
     autoOpen: false,
-  })
+  });
 
   port.open(err => {
-    console.log('blah', err)
     if (!err) {
       port.on('data', line => {
-        console.log('data', line)
         switch (line.trim()) {
           case 'INCR_HORIZONTAL':
-            horizontalIncrement()
-            break
+            horizontalIncrement();
+            break;
           case 'DECR_HORIZONTAL':
-            horizontalDecrement()
-            break
+            horizontalDecrement();
+            break;
           case 'INCR_VERTICAL':
-            verticalIncrement()
-            break
+            verticalIncrement();
+            break;
           case 'DECR_VERTICAL':
-            verticalDecrement()
-            break
+            verticalDecrement();
+            break;
+          case 'CLEAR':
+            break;
         }
       })
     } else {
@@ -41,4 +41,4 @@ function register (
   })
 }
 
-module.exports = { register }
+module.exports = { register };
