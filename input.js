@@ -6,6 +6,7 @@ function register (
     horizontalDecrement,
     verticalIncrement,
     verticalDecrement,
+    clear
   },
   portString = '/dev/cu.SLAB_USBtoUART'
 ) {
@@ -16,6 +17,7 @@ function register (
   });
 
   port.open(err => {
+    console.log("CONNECTED?", err)
     if (!err) {
       port.on('data', line => {
         switch (line.trim()) {
@@ -32,6 +34,7 @@ function register (
             verticalDecrement();
             break;
           case 'CLEAR':
+            clear();
             break;
         }
       })
