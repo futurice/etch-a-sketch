@@ -69,4 +69,12 @@ require('./input').register({
   verticalIncrement () {
     CursorPosition.swap(({ x, y }) => ({ x, y: y - SCALE }))
   },
+  clear () {
+    const context = canvas.getContext('2d')
+    context.clearRect(0, 0, canvas.width, canvas.height)
+    CursorPosition.set({
+      x: Math.round(window.innerWidth / 2),
+      y: Math.round(window.innerHeight / 2),
+    })
+  },
 })
