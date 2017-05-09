@@ -70,30 +70,3 @@ require('./input').register({
     CursorPosition.swap(({ x, y }) => ({ x, y: y - SCALE }))
   },
 })
-
-// const DECAY = 200 // ms
-
-// class Veclocity {
-//   constructor () {
-//     this.velocity = 0
-//     this.history = []
-//     this.historyLength = 0
-//     this.historyOffset = -1
-//   }
-
-//   increment () {
-//     const now = Date.now()
-
-//     // remove old history
-//     for (let i = 0; i < this.historyLength; i++) {
-//       const { timestamp, increment } = this.history[
-//         (i + this.historyOffset) % this.historyLength
-//       ]
-//       if (timestamp + DECAY < now) {
-//         this.historyOffset
-//       }
-//     }
-//   }
-
-//   decrement () {}
-// }
